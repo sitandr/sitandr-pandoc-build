@@ -1,0 +1,21 @@
+from: markdown+raw_tex+latex_macros+yaml_metadata_block+implicit_figures+link_attributes+pandoc_title_block
+to: latex
+pdf-engine: pdflatex
+
+variables:
+  mainfont: Calibri # Times New Roman (в крайних случаях…)
+
+include-in-header: ${.}/extra/disable_float.tex
+
+filters:
+  - pandoc-eqnos
+  #- ${.}/filters/table-replace-filter.py #delimiter = ;, encoding = utf-8
+  #- ${.}/filters/figures-insert-filter.py
+  - ${.}/filters/pandoc-unicode-math.exe
+  - ${.}/filters/math_replace.py
+
+template: ${.}/extra/default.latex
+output-file: res.tex
+input-file: src.md
+
+# verbosity: INFO

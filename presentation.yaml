@@ -1,0 +1,30 @@
+
+
+
+from: markdown+raw_tex+yaml_metadata_block+implicit_figures+link_attributes+pandoc_title_block
+to: revealjs
+standalone: true
+# embed-resources: true
+self-contained: true
+css: ${.}/css/no-fancy.css
+
+variables:
+  revealjs-url: C:/Tools/pandoc-sitandr-build/revealjs
+
+  theme: serif
+  slideNumber: true
+  controls: false
+
+  # revealjs configuration + extra
+
+filters:
+  - pandoc-eqnos
+  - ${.}/filters/table-replace-filter.py #delimiter = ;, encoding = utf-8
+  - ${.}/filters/figures-insert-filter.py
+
+output-file: res.html
+input-file: src.md
+
+
+html-math-method:
+  method: mathjax

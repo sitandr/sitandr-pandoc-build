@@ -1,0 +1,18 @@
+\setlength{\parindent}{5ex}
+\setlength{\parskip}{1em}
+\linespread{1.2}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{float}
+\let\origfigure\figure
+\let\endorigfigure\endfigure
+\renewenvironment{figure}[1][2] {\expandafter\origfigure\expandafter[H]} {\endorigfigure}
+
+\usepackage[ddmmyyyy]{datetime}
+\renewcommand{\dateseparator}{.}
+\renewcommand{\figurename}{Рисунок}
+
+\usepackage{amsmath}
+
+%\newcommand{\Def}{\underline{Def}\;}
+%\newcommand{\goticlargea}{\mathfrak{O\!r}}
