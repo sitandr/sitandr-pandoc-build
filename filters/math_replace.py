@@ -1,17 +1,12 @@
 import panflute as pf
+import json
 
-replacement = {'−': '-',
-               '≪': '\ll',
-               '≫': '\gg',
-               ' ': ' ',
-               ' ': ' ',
-               '≔': ':=',
-               }
+replacement = json.load(open(r"C:\Tools\pandoc-sitandr-build\filters\unicode_math.json", encoding='utf8'))
 
 def replace_math(elem, doc):
     if isinstance(elem, pf.Math):
         for key in replacement.keys():
-            elem.text = elem.text.replace(key, replacement[key])
+            elem.text = elem.text.replace(key, replacement[key]+' ')
 
     return elem
 

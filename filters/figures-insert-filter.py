@@ -36,7 +36,3 @@ def main(doc=None):
 
 if __name__ == "__main__":
     main()
-# for debug:
-#    with open('C:/Users/User/Desktop/лаба/Осцилограф_/end.pdf.json', encoding='utf-8') as f:
-#        doc = pf.load(f)
-#        print(doc.walk(figure_insert))
