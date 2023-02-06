@@ -23,7 +23,7 @@ filters:
   - ${.}/filters/figures-insert-filter.py
 
 output-file: res.html
-input-file: src.md
+#input-file: src.md
 
 
 html-math-method:
