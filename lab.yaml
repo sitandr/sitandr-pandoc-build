@@ -1,6 +1,6 @@
 from: markdown+raw_tex+yaml_metadata_block+implicit_figures+link_attributes+pandoc_title_block
 to: pdf
-pdf-engine: xelatex
+pdf-engine: pdflatex
 
 variables:
   mainfont: Calibri # Times New Roman (в крайних случаях…)
@@ -11,6 +11,7 @@ filters:
   - pandoc-eqnos
   - ${.}/filters/table-replace-filter.py #delimiter = ;, encoding = utf-8
   - ${.}/filters/figures-insert-filter.py
+  - ${.}/filters/math_replace.py
 
 template: ${.}/extra/default.latex
 output-file: res.pdf
@@ -19,14 +20,17 @@ output-file: res.pdf
 # verbosity: INFO
 
 metadata:
-  subtitles: 
+  subtitles:
     - Лабораторная работа
   where:
     - Высшая школа экономики, Санкт-Петербургская школа физико-математических и компьютерных наук
     - Физика, 2 курс
-  author: 
+  author:
     - Андрей Ситников
     - Никита Афанасьев
+#  titlegraphic: titlegraphic/hse_logo.png
+  titlepage: true
+  no_title: false
   geometry:
     - top=20mm
     - bottom=20mm
@@ -34,3 +38,6 @@ metadata:
     - right=10mm
     - bindingoffset=0mm
     - heightrounded
+  lang: ru-RU
+
+verbosity: INFO

@@ -4,6 +4,8 @@ Windows Registry Editor Version 5.00
 
 [HKEY_CLASSES_ROOT\SystemFileAssociations\.md\shell]
 
+[-HKEY_CLASSES_ROOT\SystemFileAssociations\.md\shell\pandoc]
+
 [HKEY_CLASSES_ROOT\SystemFileAssociations\.md\shell\pandoc]
 "MUIVerb"="Pandoc"
 "subcommands"=""
@@ -15,16 +17,16 @@ Windows Registry Editor Version 5.00
 "CommandFlags"=dword:00000020
 
 [HKEY_CLASSES_ROOT\SystemFileAssociations\.md\shell\pandoc\shell\raw_tex\command]
-@="cmd /c \"pandoc.exe  \"%l\" --log=out.log --defaults=%%SPB%%\\raw_tex.yaml > log.txt 2>&1\""
+@="cmd /c \"pandoc.exe  \"%l\" --defaults=%%SPB%%\\raw_tex.yaml > log.txt 2>&1\""
 
 [HKEY_CLASSES_ROOT\SystemFileAssociations\.md\shell\pandoc\shell\lab]
 @="Lab"
 
 [HKEY_CLASSES_ROOT\SystemFileAssociations\.md\shell\pandoc\shell\lab\command]
-@="cmd /c \"pandoc.exe  \"%l\" --log=out.log --defaults=%%SPB%%\\lab.yaml > log.txt 2>&1\""
+@="cmd /c \"pandoc.exe  \"%l\" --defaults=%%SPB%%\\lab.yaml > log.txt 2>&1\""
 
 [HKEY_CLASSES_ROOT\SystemFileAssociations\.md\shell\pandoc\shell\presentation]
 @="Presentation"
 
 [HKEY_CLASSES_ROOT\SystemFileAssociations\.md\shell\pandoc\shell\presentation\command]
-@="cmd /c \"pandoc.exe  \"%l\" --log=out.log --defaults=%%SPB%%\\presentation.yaml > log.txt 2>&1\""
+@="cmd /c \"pandoc.exe  \"%l\" --defaults=%%SPB%%\\presentation.yaml > log.txt 2>&1\""

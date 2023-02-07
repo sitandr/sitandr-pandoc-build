@@ -32,6 +32,9 @@ $endif$
 $for(classoption)$
   $classoption$$sep$,
 $endfor$
+$if(titlepage)$
+  titlepage,
+$endif$
 ]{$documentclass$}
 $if(beamer)$
 $if(background-image)$
@@ -439,6 +442,8 @@ $endif$
 
 $if(title)$
 \title{$title$$if(thanks)$\thanks{$thanks$}$endif$}
+$else$
+\title{}
 $endif$
 
 
@@ -470,25 +475,32 @@ $if(where)$
   }
 $endif$
 
-\author{$for(author)$$author$$sep$ \and $endfor$}
-\date{$date$}
 $if(beamer)$
 $if(institute)$
 \institute{$for(institute)$$institute$$sep$ \and $endfor$}
 $endif$
 $if(titlegraphic)$
-\titlegraphic{\includegraphics{$titlegraphic$}}
+\titlegraphic{\includegraphics{\detokenize{$titlegraphic$}}}
 $endif$
 $if(logo)$
 \logo{\includegraphics{$logo$}}
 $endif$
+$else$
+$if(titlegraphic)$
+\usepackage{titlepic}
+\titlepic{\vspace{10mm}\includegraphics[width=8cm]{\detokenize{$titlegraphic$}}}
 $endif$
+$endif$
+
+\author{$for(author)$$author$$sep$ \and $endfor$}
+\date{$date$}
 
 \begin{document}
 $if(has-frontmatter)$
 \frontmatter
 $endif$
-$if(title)$
+$if(no_title)$
+$else$
 $if(beamer)$
 \frame{\titlepage}
 $else$

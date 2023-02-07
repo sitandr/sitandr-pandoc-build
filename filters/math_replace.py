@@ -1,7 +1,8 @@
 import panflute as pf
 import json
+import os
 
-replacement = json.load(open(r"C:\Tools\pandoc-sitandr-build\filters\unicode_math.json", encoding='utf8'))
+replacement = json.load(open(os.environ['SPB'] + r"\filters\unicode_math.json", encoding='utf8'))
 
 def replace_math(elem, doc):
     if isinstance(elem, pf.Math):
