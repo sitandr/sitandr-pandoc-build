@@ -15,9 +15,6 @@ filters:
 
 template: ${.}/extra/default.latex
 output-file: res.pdf
-#input-file: src.md
-
-# verbosity: INFO
 
 metadata:
   subtitles:

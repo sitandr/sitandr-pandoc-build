@@ -15,7 +15,6 @@ filters:
 
 template: ${.}/extra/default.latex
 output-file: res.tex
-#input-file: src.md
 
 metadata:
   lang: ru-RU

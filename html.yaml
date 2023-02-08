@@ -1,0 +1,18 @@
+from: markdown+yaml_metadata_block+implicit_figures+link_attributes+pandoc_title_block
+to: html
+standalone: true
+#self-contained: true
+#variables: []
+
+filters:
+  - pandoc-eqnos
+  #- ${.}/filters/table-replace-filter.py #delimiter = ;, encoding = utf-8
+  #- ${.}/filters/figures-insert-filter.py
+  
+table-of-contents: true
+output-file: res.html
+#input-file: src.md
+
+
+html-math-method:
+  method: mathjax
