@@ -1,4 +1,4 @@
-from: markdown+yaml_metadata_block+implicit_figures+link_attributes+pandoc_title_block
+from: markdown+yaml_metadata_block+implicit_figures+link_attributes+pandoc_title_block+implicit_header_references+header_attributes-raw_tex
 to: html
 standalone: true
 #self-contained: true
@@ -12,7 +12,7 @@ filters:
 table-of-contents: true
 output-file: res.html
 #input-file: src.md
-
+template: ${.}/extra/default.html
 
 html-math-method:
   method: mathjax

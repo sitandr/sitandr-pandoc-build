@@ -1,0 +1,29 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_CLASSES_ROOT\SystemFileAssociations\.tex]
+
+[-HKEY_CLASSES_ROOT\SystemFileAssociations\.tex\shell\latex]
+
+[HKEY_CLASSES_ROOT\SystemFileAssociations\.tex\shell]
+
+[-HKEY_CLASSES_ROOT\SystemFileAssociations\.tex\shell\latex]
+
+[HKEY_CLASSES_ROOT\SystemFileAssociations\.tex\shell\latex]
+"MUIVerb"="LaTex"
+"subcommands"=""
+
+[HKEY_CLASSES_ROOT\SystemFileAssociations\.tex\shell\latex\shell]
+
+[HKEY_CLASSES_ROOT\SystemFileAssociations\.tex\shell\latex\shell\xelatex]
+@="XeTex"
+"CommandFlags"=dword:00000040
+
+[HKEY_CLASSES_ROOT\SystemFileAssociations\.tex\shell\latex\shell\pdflatex\command]
+@="cmd /c \"xetex  \"%l\" > log.txt 2>&1\""
+
+[HKEY_CLASSES_ROOT\SystemFileAssociations\.tex\shell\latex\shell\pdflatex]
+@="PdfLaTex"
+"CommandFlags"=dword:00000040
+
+[HKEY_CLASSES_ROOT\SystemFileAssociations\.tex\shell\latex\shell\pdflatex\command]
+@="cmd /c \"pdflatex  \"%l\" > log.txt 2>&1\""

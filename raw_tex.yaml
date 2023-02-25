@@ -12,6 +12,8 @@ filters:
   #- ${.}/filters/table-replace-filter.py #delimiter = ;, encoding = utf-8
   #- ${.}/filters/figures-insert-filter.py
   - ${.}/filters/math_replace.py
+  - ${.}/filters/matrix_replace.py
+  - ${.}/filters/auto_split.py
 
 template: ${.}/extra/default.latex
 output-file: res.tex
