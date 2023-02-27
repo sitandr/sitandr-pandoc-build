@@ -452,7 +452,7 @@ $else$
   \usepackage{etoolbox}
   \makeatletter
   \providecommand{\subtitle}[1]{% add subtitle to \maketitle
-    \apptocmd{\@title}{\par\vspace{3mm}{\par\large #1 \par\vspace{2mm}}}{}{}
+    \apptocmd{\@title}{\par\vspace{3mm}{\par\large #1 \par\vspace{3mm}}}{}{}
   }
   \makeatother
 $endif$
