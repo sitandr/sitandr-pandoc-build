@@ -4,7 +4,8 @@ import panflute as pf
 def needs_to_split(text: str) -> bool:
     deep = 0
     escaped = False
-    for char in text:
+    for i in range(len(text)):
+        char = text[i]
         #print(char, deep, escaped)
         if not escaped:
             if char == '{':
@@ -16,6 +17,12 @@ def needs_to_split(text: str) -> bool:
         else:
             if char == '\\' and deep == 0:
                 return True
+            if text[i:].startswith("begin"):
+                if not text[i+len("begin")].isalpha():
+                    deep += 1
+            elif text[i:].startswith("end"):
+                if not text[i+len("end")].isalpha():
+                    deep -= 1
             escaped = False
     return False
 

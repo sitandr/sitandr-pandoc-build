@@ -6,7 +6,10 @@ replacement = ['pmatrix', 'matrix', 'cases']
 
 
 def replace(text, key):
-    while (start := text.find('\\' + key)) > -1:
+    while True:
+        start = text.find('\\' + key)
+        if start == -1:
+            break
         l = len(key) + 1
         if start == -1:
             continue

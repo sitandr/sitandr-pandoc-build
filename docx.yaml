@@ -1,24 +1,23 @@
 from: markdown+raw_tex+latex_macros+yaml_metadata_block+implicit_figures+link_attributes+pandoc_title_block
-to: latex
-pdf-engine: pdflatex
+to: docx
 
-variables: 
-  mainfont: Calibri # Times New Roman (в крайних случаях…)
-
-include-in-header: ${.}/extra/disable_float.tex
+#variables: 
+#  mainfont: Calibri # Times New Roman (в крайних случаях…)
+metadata:
+  author:
+    - Андрей Ситников
+    - Никита Афанасьев
+#  titlegraphic: titlegraphic/hse_logo.png
+  lang: ru-RU
 
 filters:
+#  - pandoc-eqnos
   #- ${.}/filters/table-replace-filter.py #delimiter = ;, encoding = utf-8
   #- ${.}/filters/figures-insert-filter.py
   - ${.}/filters/math_replace.py
   - ${.}/filters/matrix_replace.py
   - ${.}/filters/auto_split.py
-  - pandoc-eqnos
 
-template: ${.}/extra/default.latex
-output-file: res.tex
-
-metadata:
-  lang: ru-RU
-
+output-file: res.docx
+reference-doc: ${.}/extra/reference.docx
 verbosity: INFO
