@@ -1,0 +1,124 @@
+\chapter{Обобщённые функции}
+\section{Определения}
+\begin{enumerate}
+    \item \textbf{Класс основных обобщённых функций $D(\mathbb{R})$}
+    \begin{definition}
+        $\varphi \in D(\mathbb{R})$, если выполнены два следующих условия: \begin{enumerate}
+            \item $\varphi \in C^{\infty} (\mathbb{R})$
+            \item $\operatorname{supp} \varphi = \overline{\{ x: \varphi(x) \neq 0\}}$ -- компакт\\
+        \end{enumerate}
+    \end{definition}
+    \begin{example}
+        \begin{equation*} \varphi (x) =
+            \begin{cases}
+            e^{\frac{1}{x^2 -1}} & |x| < 1 \\
+            0 & |x| \geq 1
+            \end{cases}
+        \end{equation*}
+        \begin{minipage}{8 cm}
+        \includegraphics[width = 7 cm]{images/mp_lection_1_1_1.png}
+        \end{minipage}
+        \begin{minipage}{10 cm}
+            Понятно, что при $|x| > 1$ функция бесконечно гладкая, так как там просто 0. Точно также при $|x| > 1$ функция бесконечно гладкая -- экспоненту можно хоть задифференцироваться. А интерес возникает в 1: $\varphi (x) \underset{x \to 1 - 0}{\longrightarrow} 0 $ Аналогично в минус единице. Но почему их бесконечно -- надо доказать)
+        \end{minipage}
+        \begin{exercise}
+        $\varphi \in C_0^{\infty} (\mathbb{R})$
+        \end{exercise}
+    \end{example}
+
+    $D(\mathbb{R})$ -- линейное пространство (понятно, что все операции оставят носитель компактным)
+    
+    \begin{definition}
+        $\varphi_k \overset{D(\mathbb{R})}{\longrightarrow} \varphi$, то есть последовательность функций $\varphi_k$ сходится к $\varphi$ в смысле $D(\mathbb{R})$, если выполнены два следующих условия: \begin{enumerate}
+            \item $\exists [A, B]: \operatorname{supp} \varphi_k \subset [A, B]$ и $\operatorname{supp} \varphi \subset [A, B]$
+            \item $\varphi_k^{(l)} \rightrightarrows \varphi^{(l)}$ на $[A;B]$(есть равномерная сходимость производных на $[A;B]$), $l = 0, 1, 2, 3, \dots$
+        \end{enumerate}
+    \end{definition}
+    \begin{exercise}
+        Пространство $D(\mathbb{R})$ не метризуемо ($\nexists \rho: \varphi_k \overset{D(\mathbb{R})}{\longrightarrow} \varphi \Leftrightarrow \rho(\varphi_k, \varphi) \to 0$)
+    \end{exercise}
+    \item \textbf{Класс обобщённых функций $D'(\mathbb{R})$}
+        \begin{definition}
+            $f \in D'(\mathbb{R}) \Leftrightarrow f:\begin{pmatrix}
+            D(\mathbb{R}) \to \mathbb{C} \\ \varphi \mapsto (f, \varphi) 
+            \end{pmatrix} -- \text{линейный непрерывный функционал }$, то есть $(f, \lambda \varphi + \mu \psi) = \lambda(f, \varphi) + \mu (f, \psi)$ и $\varphi_k \overset{D(\mathbb{R})}{\longrightarrow} \varphi \Longrightarrow (f, \varphi_k) \longrightarrow (f, \varphi)$
+        \end{definition}
+        \begin{warning}
+            Непрерывность достаточно проверять в 0. Если $f$ -- непрерывный функционал, $\varphi_k \overset{D(\mathbb{R})}{\longrightarrow} 0 \Longrightarrow (f, \varphi_k) \longrightarrow 0$ -- понятно. \\ А мы хотим сказать, что $\exists f$ -- линейный функционал, $(f, \varphi_k) \longrightarrow 0$ при $\varphi_k \overset{D(\mathbb{R})}{\longrightarrow} 0$\\
+            Если $\psi_k \overset{D(\mathbb{R})}{\longrightarrow} \psi$, то $(f, \psi_k) = (f, \psi_k - \psi) + (f, \psi) \longrightarrow (f, \psi)$
+        \end{warning}
+        \begin{example}
+            Дельта-функция: $(\delta, \varphi) = \varphi(0)$\\
+            Понятно, что он прекрасно определён на основных обобщённых функциях, линеен, непрерывен: $\varphi_k \overset{D(\mathbb{R})}{\longrightarrow} \varphi \Rightarrow \varphi_k(0) \longrightarrow \varphi(0)$
+        \end{example}
+        \begin{example}
+            $(P\frac{1}{x}, \varphi) = v.p.\int\limits_{\mathbb{R}} \frac{\varphi(x)}{x} dx = \lim\limits_{\epsilon \to +0} \int\limits_{|x| > \epsilon} \frac{\varphi(x)}{x} dx = [\varphi \in D(\mathbb{R}); \operatorname{supp} \subset [-R, R]] \overset{\text{интеграл от нечётной функции}}{=} \lim\limits_{\epsilon \to +0} \int\limits_{-R}^{- \epsilon} (\frac{\varphi(x) - \varphi(0)}{x} dx + \int\limits_{\epsilon}^{R} (\frac{\varphi(x) - \varphi(0)}{x} d x) = \int\limits_{-R}^{R} \frac{\varphi(x) - \varphi(0)}{x} dx$
+            То есть мы действительно убедились, что $P \frac{1}{x}$:$D(\mathbb{R} \to \mathbb{C})$, линейность очевидна, непрервыность: $\exists \varphi_k \overset{D(\mathbb{R})} {\longrightarrow} 0, \ , \operatorname{supp} \subset[-R, R]$, $|\frac{\varphi(x) - \varphi(0)}{x}| \leq \max\limits_{t \in[-R; R]} |\varphi'(t)|$\\ $|(P \frac{1}{x}, \varphi_k)| \leq 2R \max\limits_{t \in[-R; R]} |\varphi'_k| \underset{k \to \infty}{\Longrightarrow} 0$
+        \end{example}
+        \begin{example}
+            $(\frac{1}{x \pm i0}, \varphi) = \lim\limits_{\epsilon \to +0} \int\limits_{\mathbb{R}} \frac{\varphi(x) d x}{x \pm i\epsilon}$ \\
+            $\exists +, \operatorname{supp} \varphi \subset [-R, R]$: $\int\limits_{\mathbb{R}} \frac{\varphi(x)}{x+i \epsilon} dx =\int\limits_{-R}^{R} \frac{\varphi(x) - \varphi(0)}{x+i \epsilon} dx + \varphi(0) \int\limits_{-R}^{R} \frac{dx}{x+i \epsilon}$ \\ $\int\limits_{-R}^{R} \frac{dx}{x+i \epsilon} = - i\epsilon \int\limits_{-R}^{R} \frac{dx}{x^2+ \epsilon^2} = -i \arctan\frac{x}{\epsilon}|_{-R}^{R} = -2i \arctan\frac{R}{\epsilon} \underset{\epsilon \to +0}{\longrightarrow} = - \pi i$ \\
+            $(\frac{1}{x+i0}, \varphi) = (P \frac{1}{x}, \varphi) - \pi i \varphi(0)$
+            \\ $\frac{1}{x+i0} = P\frac{1}{x} - \pi i \delta(x)$, аналогично $\frac{1}{x-i0} = P\frac{1}{x} + \pi i \delta(x)$ -- формулы Сохоцкого
+        \end{example}
+    \item \textbf{Регулярные и сингулярные обобщённые функции}\\
+    $\exists f \in L_{1, loc} (\mathbb{R})$ (измерима + интеграл конечен)\\
+    $(\Tilde{f}, \varphi) = \int\limits_{\mathbb{R}} f(x) \varphi(x) dx$ -- линеен + непрерывен ($ \varphi_k \overset{D(\mathbb{R})} {\longrightarrow} 0, \operatorname{supp} \subset[A, B]$:$|(\Tilde{f}, \varphi_k)| \leq \max\limits_{[A, B]} |\varphi_k| \int\limits_A^B |f(x)|dx \underset{k \to \infty}{\longrightarrow}0$)
+    Такие обобщённые функцие (которые представимы в виде интеграла) будем называть \textbf{регулярными}, остальные -- \textbf{сингулярными}.
+    \begin{theorem}
+        $\exists f \in L_{1, loc} (\mathbb{R})$, $\int_{\mathbb{R}} f(x) \varphi(x) d x = 0 \forall \varphi \in D(\mathbb{R}) \Rightarrow f(x) = 0$ почти всюду
+        \begin{proof}
+            Доказательство ниже.
+        \end{proof}
+    \end{theorem}
+    \begin{example}
+         $(\delta, \varphi) = \varphi(0)$ -- сингулярная функция.
+         \begin{proof}
+            От противного. Пусть $\exists f \in L_{1, loc}$: $\int\limits_{\mathbb{R}} f(x) \varphi(x) d x = (\delta, \varphi) = \varphi(0) \forall \varphi \in D(\mathbb{R})$ \\
+            $\exists \psi (x) = x \varphi (x) \Rightarrow \int\limits_{\mathbb{R}} f(x) x \varphi(x) d x = \psi (0) = 0 \forall \varphi \in D(\mathbb{R}) \underset{\text{по Теореме 1.1.1}}{\Rightarrow} x f(x) = 0 \text{ почти всюду} \Rightarrow f(x) = 0 \text{ почти всюду}$ (везде, где $x$ не равен нулю -- очевидно, а одна точка меру не меняет) $\Rightarrow \int\limits_{\mathbb{R}} f(x) \varphi(x) d x = 0 \neq \varphi (0)$. Противоречие.
+         \end{proof}
+    \end{example}
+    \begin{warning}
+        $\int\limits_{\mathbb{R}} \delta(x) \varphi(x) d x$ -- на самом деле тут никакого интеграла нет. Это просто обозначение для действия функционала $\delta$. $\int\limits_{\mathbb{R}} \delta(x) \varphi(x) d x = \varphi (0)$
+    \end{warning}
+    \begin{example}
+        $(P\frac{1}{x}, \varphi)$ -- сингулярная
+        \begin{proof}
+             От противного. Пусть $\exists f \in L_{1, loc}$: $\int\limits_{\mathbb{R}} f(x) \varphi(x) d x = (P\frac{1}{x}, \varphi) = \lim\limits_{\epsilon \to +0} \int\limits_{|x| > \epsilon} \frac{\varphi(x)}{x} dx$ \\
+             $\exists \psi (x) = \frac{\varphi (x)}{x} \Rightarrow \lim\limits_{\epsilon \to +0} \int\limits_{|x| > \epsilon} \frac{\varphi(x)}{x} dx = \int_{\mathbb{R}} \psi (x) d x$, но с другой стороны по нашему предположению $(P\frac{1}{x}, \varphi) = \lim\limits_{\epsilon \to +0} \int\limits_{|x| > \epsilon} \frac{\varphi(x)}{x} dx = \int\limits_{\mathbb{R}} f(x) x \psi(x) d x \ \forall \varphi \in D(\mathbb{R}) \Rightarrow f(x) x = 1 \text{почти всюду} \Rightarrow f(x) = \frac{1}{x}$, то есть мы как бы нашли функцию, но она не подходит, так как $f(x) = \frac{1}{x} \notin L_{1, loc}$. Противоречие.
+        \end{proof}
+    \end{example}
+    \begin{exercise}
+        $\frac{1}{x \pm i0}$ -- сингулярные
+    \end{exercise}
+
+    \item \textbf{Доказательство Теоремы 1.1.1} \\
+    \begin{lemma}
+        $\exists g \in C(\mathbb{R}), \int\limits_{\mathbb{R}} g \varphi(x) d x = 0 \ \forall \varphi \in C_0^{\infty}(\mathbb{R}) \Rightarrow g(x) = 0 \ \forall x$
+        \begin{proof}
+            $\varphi: \mathbb{R} \to \mathbb{R}$, $g = Re g + i Im g$ $\Rightarrow \int\limits_{\mathbb{R}} Re g \varphi(x) d x = 0, \ \int\limits_{\mathbb{R}} Im g \varphi(x) d x = 0$, то есть достаточно доказывать только для вещественнозначных. \\
+            $g: \mathbb{R} \to \mathbb{R}$, От противного. Пусть $\exists g(x_0) \neq 0 $, пусть $\exists g (x_0) > 0$ $\Rightarrow g(x) > 0 \ \forall x \in [x_0 - \delta, x_0 + \delta]$
+            \begin{exercise}
+                $\exists \varphi \in D(\mathbb{R}): supp \varphi = [x_0 - \delta, x_0 + \delta]$ и $\varphi(x) > 0 \ \forall x \in [x_0 - \delta, x_0 + \delta]$
+            \end{exercise}
+            $\int\limits_{\mathbb{R}} g \varphi(x) d x = \int\limits_{x_0 - \delta}^{x_0 + \delta} g \varphi(x) d x$, а здесь обе функции $> 0$. Значит,  $\int\limits_{\mathbb{R}} g \varphi(x) d x > 0$. Противоречие.
+        \end{proof}
+    \end{lemma}
+    \begin{exercise}
+        $f \in L_{1, loc} (\mathbb{R})$, $\int\limits_a^b f(x) d x = 0 \forall a, b f = 0$ почти всюду.
+    \end{exercise}
+    \begin{exercise}
+         $f \in L_{1, loc} (\mathbb{R}), \ \exists h > 0$, $f_h (x) = \int\limits_{x - h}^{x + h}$\\
+         $f_h$ -- непрерывна
+    \end{exercise}
+    \begin{exercise}
+        $\varphi \in D(\mathbb{R}) \Leftarrow (\varphi)_h \in D(\mathbb{R})$
+    \end{exercise}
+    \begin{exercise}
+        $f \in L_{1, loc}, \ \varphi \in D(\mathbb{R})$ \\
+        $\int\limits_{\mathbb{R}} (f)_h \varphi d x = \int\limits_{\mathbb{R}} f (\varphi)_h d x$
+    \end{exercise}
+    \begin{exercise}
+        Доказать Теорему 1.1.1
+    \end{exercise}
+\end{enumerate}

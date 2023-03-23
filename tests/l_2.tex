@@ -1,0 +1,136 @@
+\newcommand{\loc}{\mathrm{loc}}
+\section{Операции над обобщенными функциями}
+$D' (\mathbb{R})$ - линейное пространство.\\
+\begin{enumerate}
+  \item \textbf{Умножение на гладкую}\\
+    \begin{definition}
+      Пусть $f \in D' (\mathbb{R})$, $\alpha \in C^{\infty} (\mathbb{R})$ $(\alpha f, \varphi) = (f, \alpha \varphi)$.
+    \end{definition}
+      Корректность: $\varphi \in D (\mathbb{R}) \; \Rightarrow \; \alpha \varphi \in D (\mathbb{R})$.\\
+      Линейность.\\
+      Непрерывность: $\varphi_{k} \xrightarrow{D (\mathbb{R})} 0 \; \Rightarrow \; \alpha \varphi_{k} \xrightarrow{D (\mathbb{R})} 0$. $\supp \varphi_{k} \subset [A, B] \; \Rightarrow \; (f, \alpha \varphi_{k}) \rightarrow 0$.\\
+    \begin{example}
+      \begin{enumerate}
+        \item $\alpha \delta$, $(\alpha \delta, \varphi) = (\delta, \alpha \varphi) = \alpha(0) \varphi(0)$, $x \delta (x) = 0$.
+        \item $\left(x P\frac{1}{x}, \varphi\right) = \left(P\frac{1}{x}, x \varphi\right) = \int\limits_{\mathbb{R}} \varphi(x) d x$, $x P\frac{1}{x} = 1$.
+      \end{enumerate}
+    \end{example}
+  \item \textbf{Замена переменной}\\
+    \begin{definition}
+      $C \colon \mathbb{R} \rightarrow \mathbb{R} \text{ - биекция, } c \in C^{\infty} (\mathbb{R}) \text{, } (\forall x \ c'(x) \neq 0) \text{, } f \in D' (\mathbb{R}) \colon (f \circ c, \varphi) = \left(f, \frac{\varphi \left(c^{- 1} (y)\right)}{\left|c' \left(c^{- 1} (y)\right)\right|}\right)$.
+    \end{definition}
+    Корректность $\varphi \in D (\mathbb{R}) \; \Rightarrow \; \varphi \circ c^{- 1} \in D (\mathbb{R}) \; \Rightarrow \; \frac{\varphi \circ c^{- 1}}{\left|c' \circ c^{- 1}\right|} \in D (\mathbb{R})$.\\
+    Линейность.\\
+    Непрерывность $\varphi_{k} \xrightarrow{D (\mathbb{R})} 0 \; \Rightarrow \; \frac{\varphi_{k} \circ c^{- 1}}{\left|c' \circ c^{- 1}\right|} \in D (\mathbb{R})$.\\
+    \begin{example} $c(x) = \gamma x$, $c^{- 1} (x) = \frac{x}{\gamma}$. $(\delta(\gamma x), \varphi) = \left(\delta, \frac{\varphi \left(\frac{x}{\gamma}\right)}{|\gamma|}\right) = \frac{1}{|\gamma|} \varphi (0)$, $\delta (\gamma x) = \frac{1}{|\gamma|} \delta (x)$.
+    \end{example}
+    \begin{warning}
+      $c \circ f$ - не определяется.
+    \end{warning}
+  \item \textbf{Дифференцирование}\\
+    \begin{definition}
+      $f \in D' (\mathbb{R}) \text{, } \varphi \in D (\mathbb{R}) \colon (f', \varphi) = - (f, \varphi')$.
+    \end{definition}
+        Очевидны:\\
+      Корректность.\\
+    Линейность.\\
+    Непрерывность.\\
+    \begin{example}
+      \begin{enumerate}
+        \item $\theta (x) = \begin{cases}1 & x > 0\\ 0 & x < 0\end{cases}$, $(\theta, \varphi) = \int\limits_{0}^{\infty} \varphi (x) d x$, $(\theta', \varphi) = - (\theta, \varphi') = - \int\limits_{0}^{\infty} \varphi' (x) d x = \varphi (0)$, $\theta' = \delta$.\\
+        \item $(\delta', \varphi) = - \varphi' (0)$.\\
+        \item $(f^{(n)}, \varphi) = (- 1)^{n} (f, \varphi^{(n)})$.\\
+          \begin{warning}
+            Обобщенные функции бесконечно дифференцируемы в смысле $D'$.
+          \end{warning}
+        \item $\alpha \in C^{\infty} (\mathbb{R}) \text{, } f \in D' (\mathbb{R}) \colon (\alpha f)' = \alpha' f + \alpha f'$. Пусть $\varphi \in D (\mathbb{R})$, тогда: $((\alpha f)', \varphi) = - (\alpha f, \varphi') = - (f, \alpha \varphi') = - (f, (\alpha \varphi)') + (f, \alpha' \varphi) = (f', \alpha \varphi) + (\alpha' f, \varphi)$.
+      \end{enumerate}
+    \end{example}
+    \begin{exercise}
+      \begin{enumerate}
+        \item $(\ln (x))' = P\frac{1}{x}$.\\
+        \item $f \in D' (\mathbb{R}) \text{, } f' = 0 \; \Rightarrow \; f = const$.\\
+        \item $f \in D' (\mathbb{R}) \text{, } f^{(m)} = 0 \; \Rightarrow \; f \text{ - многочлен } \deg f < m$.\\
+        \item $f$ с разрывом в $0$, $\left.f\right|_{(- \infty, 0)} \in C^{1} ((- \infty, 0])$, $\left.f\right|_{(0, \infty)} \in C^{1} ([0, \infty))$ $f(+ 0) - f(- 0) = h$, $f_{D'}' = f_{\text{классическая}}' + h \delta (x)$.
+      \end{enumerate}
+    \end{exercise}
+  \item \textbf{Сходимость}\\
+    \begin{definition}
+      $f_{k} \xrightarrow{D' (\mathbb{R})} f \; \Leftrightarrow \; (f_{k}, \varphi) \rightarrow (f, \varphi) \; \forall \varphi \in D (\mathbb{R})$.
+    \end{definition}
+    $f_{k} \rightarrow f$, $g_{k} \rightarrow g$, $\alpha, \beta \in \mathbb{C}$, $\alpha f_{k}' + \beta g_{k}' \rightarrow \alpha f + \beta g$. $f_{k} \xrightarrow{D'} f \; \Rightarrow \; f_{k}' \xrightarrow{D'} f'$, $(f_{k}', \varphi) = - (f_{k}, \varphi') \rightarrow - (f, \varphi) = (f', \varphi)$.
+    \begin{exercise}
+      $\cos (k x) \xrightarrow{D'} 0$.
+    \end{exercise}
+    \begin{theorem}
+      $f_{k} \in L_{1} (\mathbb{R})$:\\
+      \begin{enumerate}
+        \item $f_{k} (x) \geqslant 0$ почти всюду.\\
+        \item $\forall a > 0 \; \int\limits_{- a}^{a} f_{k} (x) d x \rightarrow 1$.\\
+        \item $\int\limits_{\mathbb{R}} f_{k} d x = 1$.
+      \end{enumerate}
+      Тогда: $f_{k} \xrightarrow{D'} \delta (x)$.
+    \end{theorem}
+    \begin{proof}
+      $\varphi \in D (\mathbb{R})$ $\varepsilon > 0 \; \exists \alpha > 0 \colon |\varphi(x) - \varphi(0)| < \frac{\varepsilon}{2} \text{ при } |x| \leqslant \alpha$. $\left|\int\limits_{\mathbb{R}} f_{k} (x) \varphi(x) d x - \varphi(0)\right| = \left|\int\limits_{\mathbb{R}} (f_{k} (x) \varphi (x) - \varphi(0)) d x\right| \leqslant \left|\int\limits_{|x| < \alpha} (f_{k} (x) \varphi (x) - \varphi(0)) d x\right| + \left|\int\limits_{|x| > \alpha} (f_{k} (x) \varphi (x) - \varphi(0)) d x\right| \leqslant \frac{\varepsilon}{2} \int\limits_{- \alpha}^{\alpha} f_{k} (x) d x + 2 \max\limits_{\mathbb{R}} |\varphi| \int\limits_{|x| > \alpha} f_{k} (x) d x \rightarrow \frac{\varepsilon}{2} \; \Rightarrow \; \exists K \colon \left|\int\limits_{\mathbb{R}} f_{k} \varphi_{k} d x - \varphi (0)\right| < \varepsilon \text{ при } k > K \; \Rightarrow \; (f_k, \varphi) \rightarrow \varphi(0) \; \Rightarrow \; f_{k} \xrightarrow{D'} \delta$.
+    \end{proof}
+    \begin{warning}
+      Верно $\int\limits_{\mathbb{R}} f_{k} \varphi d x \rightarrow \varphi(0) \; \forall \varphi \text{ - непрерывная и ограниченная на } \mathbb{R}$.
+    \end{warning}
+    \begin{exercise}
+      $f \in L_{1, \loc} (\mathbb{R}) \colon \text{1) и 2)} \; \Rightarrow \; f_{k} \xrightarrow{D'} \delta$.
+    \end{exercise}
+    \begin{warning}
+      Такие последовательности - это $\delta$ - образые последовательности.
+    \end{warning}
+    \begin{example}
+      \begin{enumerate}
+        \item $f_{k} (x) = \begin{cases}k & x \in \left(0, \frac{1}{k}\right]\\ 0 & \text{иначе}\end{cases}$, $f_{k} \rightarrow \delta$.\\
+          \item $f_{\varepsilon} (x) = \frac{\varepsilon}{\pi (x^2 + \varepsilon^2)}$. $\int\limits_{- a}^{a} \frac{\varepsilon}{\pi (x^2 + \varepsilon^2)} d x = \left.\frac{1}{\pi} \arctg \left(\frac{x}{\varepsilon}\right)\right|_{- a}^{a} = \frac{2}{\pi} \arctg \left(\frac{a}{\varepsilon}\right) \rightarrow 1$. $\int\limits_{\mathbb{R} f_{\varepsilon}} d x = 1 \; \Rightarrow \; f_{\varepsilon} \rightarrow \delta$.\\
+          \item $f_{t} (x) = \frac{e^{- \frac{x^2}{t}}}{\sqrt{\pi t}} \text{, где } t > 0$. $\frac{1}{\sqrt{\pi t}} \int\limits_{- a}^{a} e^{- \frac{x^2}{t}} d x = \frac{1}{\sqrt{\pi}} \int\limits_{- \frac{a}{\sqrt{pi}}}^{\frac{a}{\sqrt{\pi}}} e^{- y^2} d y \rightarrow 1$. $\frac{1}{\sqrt{\pi t}} \int\limits_{- a}^{a} e^{- \frac{x^2}{t}} d x = 1$.
+      \end{enumerate}
+    \end{example}
+    \begin{exercise}
+      $\frac{\sin N x}{\pi x} \rightarrow \delta (x)$.
+    \end{exercise}
+    \item \textbf{Локальный класс}
+        $D(a, b) = C_0^{+ \infty} (a, b)$\\
+        \begin{definition}
+            $\varphi_k \overset{D(a, b)}{\Longrightarrow} \varphi \Leftrightarrow $ 
+            \begin{enumerate}
+                \item $\exists c, d: a < c < d < b: \ \supp \varphi_k \subset [c, d]$
+                \item $\varphi_k^{(l)} \to \varphi^{(l)}$ равномерно на $[a, b]$
+            \end{enumerate}
+        \end{definition}
+        $D'(a,b)$ -- пространство непрерывных функционалов над пространством функций $D (a,b)$
+        \begin{definition}
+            $f \subset D'(\mathbb{R}) \ f|_{(a,b)} = 0 \Leftrightarrow (f, \varphi) = 0 \ \forall \varphi \in C_0^{+\infty} (a, b)$ 
+        \end{definition}
+        \begin{definition}
+            $\operatorname{supp} f = \mathbb{R} \setminus \{ x: f = 0 \text{ в октрестности } x \}$
+        \end{definition}
+        $\supp f$ -- замкнутое множество
+        \begin{lemma}
+            $\exists f \in D'(\mathbb{R}), \ \operatorname{supp} f \subset [A, B]$ \\
+            $\exists \psi \in D(\mathbb{R}), \ \operatorname{supp} f \subset [C, D]$\\
+            $[A, B] \cap [C, D] = \varnothing \Rightarrow (f, \psi) = 0$
+            \begin{proof}
+                В прошлом году была без доказательства. Но у нас доказывалась. Надо не забыть написать...
+            \end{proof}
+        \end{lemma}
+        \begin{theorem}
+            $\exists f \in D'(\mathbb{R}), \ \operatorname{supp} f$ -- компакт $\Rightarrow \exists m \in \mathbb{N}_0, \ \exists g \in C(\mathbb{R}): f = g^{(m)}$ (в смысле $D'(\mathbb{R})$)
+            \begin{proof}
+                Без доказательства.
+            \end{proof}
+        \end{theorem}
+        \begin{exercise}
+            $\exists f \in D'(\mathbb{R}): \ f \neq g^{m} \ \forall m \in \mathbb{N}_0, \ \forall g \in C(\mathbb{R})$
+        \end{exercise}
+        \begin{theorem}
+            $\exists f \in D'(\mathbb{R}), \ \operatorname{supp} f = \{0\} \Rightarrow \exists m \in \mathbb{N}_0, \ \exists c_0, c_1, \dots, c_m \in \mathbb{C}: f = \sum\limits_{j =0}^m c_j \delta^{(j)}$
+            \begin{proof}
+                Без доказательства.
+            \end{proof}
+        \end{theorem}
+\end{enumerate}
