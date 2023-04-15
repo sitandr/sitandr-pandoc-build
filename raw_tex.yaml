@@ -10,9 +10,10 @@ include-in-header: ${.}/extra/disable_float.tex
 filters:
   #- ${.}/filters/table-replace-filter.py #delimiter = ;, encoding = utf-8
   #- ${.}/filters/figures-insert-filter.py
-  - ${.}/filters/math_replace.py
-  - ${.}/filters/matrix_replace.py
-  - ${.}/filters/auto_split.py
+  - ${.}/filters/insert-begining.py
+  - ${.}/filters/math-replace.py
+  - ${.}/filters/matrix-replace.py
+  - ${.}/filters/auto-split.py
   - pandoc-eqnos
 
 template: ${.}/extra/default.latex

@@ -1,0 +1,19 @@
+from: latex
+to: markdown-smart+hard_line_breaks
+pdf-engine: pdflatex
+
+variables: 
+  mainfont: Calibri # Times New Roman (в крайних случаях…)
+
+filters:
+  #- ${.}/filters/table-replace-filter.py #delimiter = ;, encoding = utf-8
+  #- ${.}/filters/figures-insert-filter.py
+  - ${.}/filters/div-converter.py
+  - ${.}/filters/math-replace.py
+  - pandoc-eqnos
+output-file: res.md
+
+metadata:
+  lang: ru-RU
+
+verbosity: INFO

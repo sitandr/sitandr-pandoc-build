@@ -37,3 +37,10 @@ Windows Registry Editor Version 5.00
 
 [HKEY_CLASSES_ROOT\SystemFileAssociations\.md\shell\pandoc\shell\html\command]
 @="cmd /c \"pandoc.exe  \"%l\" --defaults=%%SPB%%\\html.yaml > pandoc_log.txt 2>&1\""
+
+[HKEY_CLASSES_ROOT\SystemFileAssociations\.md\shell\pandoc\shell\tex_md]
+@="Tex -> MD"
+"CommandFlags"=dword:00000020
+
+[HKEY_CLASSES_ROOT\SystemFileAssociations\.md\shell\pandoc\shell\tex_md\command]
+@="cmd /c \"pandoc.exe  \"%l\" --defaults=%%SPB%%\\from_raw_tex.yaml > pandoc_log.txt 2>&1\""
