@@ -19,7 +19,7 @@ def figure_insert(elem, doc):
                     res += r'''\begin{subfigure}{%s\linewidth}
                                \includegraphics[width=\linewidth]{%s}
                                \caption{%s}
-                               \end{subfigure}'''%(width, elem.url, pf.stringify(elem))
+                               \end{subfigure}'''%(width, elem.url.replace("%20", " "), pf.stringify(elem))
                 else:
                     if elem.attributes.get('width'): default_width = elem.attributes.get('width')
                     if pf.stringify(elem): name = pf.stringify(elem)
