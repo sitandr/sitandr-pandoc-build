@@ -9,7 +9,7 @@ self-contained: true
 css: ${.}/css/no-fancy.css
 
 variables:
-  revealjs-url: C:/Tools/pandoc-sitandr-build/revealjs
+  revealjs-url: C:/Tools/sitandr-pandoc-build/revealjs
 
   theme: serif
   slideNumber: true

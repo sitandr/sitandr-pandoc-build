@@ -14,9 +14,6 @@ $if(CJKmainfont)$
 $endif$
 %
 \documentclass[
-$if(fontsize)$
-  $fontsize$,
-$endif$
 $if(papersize)$
   $papersize$paper,
 $endif$
@@ -41,6 +38,18 @@ $if(background-image)$
 \usebackgroundtemplate{%
   \includegraphics[width=\paperwidth]{$background-image$}%
 }
+$endif$
+
+$if(fontsize)$
+  \usepackage[fontsize=15pt]{$fontsize$}
+$endif$
+
+$if(nohyphenating)$
+  \usepackage[none]{hyphenat}
+$endif$
+
+$if(nopagenumbers)$
+  \usepackage{nopageno}
 $endif$
 \usepackage{pgfpages}
 \setbeamertemplate{caption}[numbered]
