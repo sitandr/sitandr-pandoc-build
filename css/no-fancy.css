@@ -1,5 +1,27 @@
 :root {
 	/*--r-heading-font: Arial;*/
 	--r-heading-font: Times New Roman;
-	--r-main-font-size: 30px;
+	--r-main-font-size: 25px;
+	--r-heading1-size: 40px;
+	--r-heading-margin:  auto;
+	--r-background-color: hsl(0, 0%, 100%);
+	--r-block-margin: 7px
+}
+
+img {
+	zoom: 67%;
+}
+
+h1{
+    max-width: 70vw;
+	margin-left: auto;
+    margin-right: auto;
+}
+
+.math{
+	zoom: 0.7;
+}
+
+blockquote{
+	font-size: 50%;
 }

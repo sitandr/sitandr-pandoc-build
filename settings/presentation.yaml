@@ -1,7 +1,7 @@
 
 
 
-from: markdown+raw_tex+yaml_metadata_block+implicit_figures+link_attributes+pandoc_title_block
+from: markdown+raw_html+yaml_metadata_block+implicit_figures+link_attributes+pandoc_title_block+raw_attribute
 to: revealjs
 standalone: true
 # embed-resources: true
@@ -22,8 +22,8 @@ filters:
   - ${.}/../filters/table-replace-filter.py #delimiter = ;, encoding = utf-8
   - ${.}/../filters/figures-insert-filter.py
 
-output-file: res.html
-#input-file: src.md
+slide-level: 2
+template: ${.}/extra/default.revealjs
 
 
 html-math-method:
