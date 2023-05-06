@@ -1,20 +1,20 @@
 from: markdown+raw_tex+yaml_metadata_block+implicit_figures+link_attributes+pandoc_title_block
-to: pdf
+to: latex
 pdf-engine: pdflatex
 
 variables:
   mainfont: Calibri # Times New Roman (в крайних случаях…)
 
-include-in-header: ${.}/extra/disable_float.tex
+include-in-header: ${.}/../extra/disable_float.tex
 
 filters:
-  - ${.}/filters/math-replace.py
+  - ${.}/../filters/math-replace.py
   - pandoc-eqnos
-  - ${.}/filters/table-replace-filter.py #delimiter = ;, encoding = utf-8
-  - ${.}/filters/figures-insert-filter.py
-  - ${.}/filters/auto-split.py
+  - ${.}/../filters/table-replace-filter.py #delimiter = ;, encoding = utf-8
+  - ${.}/../filters/figures-insert-filter.py
+  - ${.}/../filters/auto-split.py
 
-template: ${.}/extra/default.latex
+template: ${.}/../extra/default.latex
 output-file: res.pdf
 
 metadata:

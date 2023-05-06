@@ -94,7 +94,7 @@ if args.command == "extract":
 path_regexp = re.compile(r'((/[a-zA-Z0-9_\.\-]+)+|(?:\\\\[^\\/]+|[a-zA-Z]:[\\/](?:[\w\.\-]+[\\/]?)*))')
 
 def get_settings(settings_name):
-    for path in (CUR_PATH, SPB_PATH):
+    for path in (CUR_PATH, os.path.join(SPB_PATH, 'settings')):
         string = os.path.join(path, args.settings + '.yaml')
         # print(f"Checking {Fore.YELLOW + string + Style.RESET_ALL}")
         if os.path.isfile(string):
@@ -129,8 +129,10 @@ were_any_warnings = False
 with subprocess.Popen(["pandoc", args.input_file, "--defaults",
                        get_settings(args.settings),
                       "-o", output_file],
+                      close_fds=True,
                       stdout=subprocess.PIPE,
                       stderr=subprocess.PIPE) as process:
+
     running = True
     while running:
         # pandoc usually puts all logs into stderr
@@ -157,19 +159,20 @@ with subprocess.Popen(["pandoc", args.input_file, "--defaults",
         sleep(0.2)
 
 if args.tex:
-    with subprocess.Popen([args.engine, output_file,
-                           "--interaction=nonstopmode", "--halt-on-error",
-                           "1>&2"], # redirect everything to stderr to avoid buffering
+    with subprocess.Popen(args.engine+ ' "' + output_file + '" '
+                           + " --interaction=nonstopmode"+ " --halt-on-error"
+                           + " 1>&2", # redirect everything to stderr to avoid buffering
                       stdout=subprocess.PIPE,
-                      stderr=subprocess.PIPE) as process:
+                      stderr=subprocess.PIPE,
+                          shell=True) as process:
         running = True
         last_err = 0
         while running:
             # pdf engines usually put all logs into stderr too
 
             #process.stdin.write("aa\n")
-            log = process.stdout.read().decode('utf-8')
-            log += process.stderr.read().decode('utf-8')
+            log = process.stderr.read().decode('utf-8')
+            log += process.stdout.read().decode('utf-8')
             total_log += log
             
             running = process.poll()
@@ -188,8 +191,10 @@ if args.tex:
                     print(line)
                     last_err -= 1
             sleep(0.2)
-        
+
 if were_any_warnings:
     hinter(total_log)
     if args.wait:
         input("Press any key…")
+else:
+    print(f"{Fore.GREEN}All completed{Style.RESET_ALL} succesfuly")

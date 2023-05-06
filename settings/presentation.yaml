@@ -6,7 +6,7 @@ to: revealjs
 standalone: true
 # embed-resources: true
 self-contained: true
-css: ${.}/css/no-fancy.css
+css: ${.}/../css/no-fancy.css
 
 variables:
   revealjs-url: C:/Tools/sitandr-pandoc-build/revealjs
@@ -19,8 +19,8 @@ variables:
 
 filters:
   - pandoc-eqnos
-  - ${.}/filters/table-replace-filter.py #delimiter = ;, encoding = utf-8
-  - ${.}/filters/figures-insert-filter.py
+  - ${.}/../filters/table-replace-filter.py #delimiter = ;, encoding = utf-8
+  - ${.}/../filters/figures-insert-filter.py
 
 output-file: res.html
 #input-file: src.md
