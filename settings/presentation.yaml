@@ -21,6 +21,7 @@ filters:
   - pandoc-eqnos
   - ${.}/../filters/table-replace-filter.py #delimiter = ;, encoding = utf-8
   - ${.}/../filters/figures-insert-filter.py
+  - ${.}/../filters/auto-split.py
 
 slide-level: 2
 template: ${.}/extra/default.revealjs
