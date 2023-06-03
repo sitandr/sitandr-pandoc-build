@@ -115,7 +115,8 @@ def highlight_paths(text, main_color=Style.RESET_ALL):
 error_hints = {'allowed only in math mode':
               f"Probably, you are using math commands or symbols {Fore.MAGENTA}outside of math env{Fore.YELLOW}; see above for more info",
                'LaTeX Error: Unicode character':
-               f"You are either using unicode math {Fore.MAGENTA}outside of math env{Fore.YELLOW} or using math charachters that {Fore.MAGENTA}are not set up to be replaced with common math{Fore.YELLOW} with filter"}
+               f"You are either using unicode math {Fore.MAGENTA}outside of math env{Fore.YELLOW} or using math charachters that {Fore.MAGENTA}are not set up to be replaced with common math{Fore.YELLOW} with filter",
+                'Undefined control sequence.': f"Make sure you {Fore.MAGENTA}don't use any command{Fore.YELLOW} LaTeX can't recognise."}
 def hinter(error):
     for error_msg in error_hints:
         if error_msg in error:

@@ -5,7 +5,8 @@
 	--r-heading1-size: 40px;
 	--r-heading-margin:  auto;
 	--r-background-color: hsl(0, 0%, 100%);
-	--r-block-margin: 7px
+	--r-block-margin: 7px;
+    --r-heading-margin: auto auto 0.5em;
 }
 
 img {
